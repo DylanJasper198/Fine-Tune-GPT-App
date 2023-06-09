@@ -3,9 +3,9 @@ import { openai } from "./api.js";
 async function createCompletion() {
   try {
     const response = await openai.createCompletion({
-      model: "ada:ft-strugbits-2023-05-30-10-30-57",
+      model: "ada:ft-strugbits-2023-06-09-15-45-13",
       prompt: "My client is missing their ID card. Can they still file?",
-      // max_tokens: 200,
+      max_tokens: 100,
       // temperature: 0.2, // Adjust this value between 0 and 1
     });
     if (response.data) {
