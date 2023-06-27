@@ -3,16 +3,17 @@ import { openai } from "./api.js";
 async function createCompletion() {
   try {
     const response = await openai.createCompletion({
-      model: "ada:ft-strugbits-2023-06-09-15-45-13",
-      prompt: "My client is missing their ID card. Can they still file?",
+      model: "ada:ft-strugbits-2023-06-19-11-41-44",
+      prompt:
+        "Once the refund is processed, can you please let me know how long the refund will take?",
       max_tokens: 100,
-      // temperature: 0.2, // Adjust this value between 0 and 1
+      temperature: 0.8, // Adjust this value between 0 and 1
     });
     if (response.data) {
       // let rawOutput = generateResponse(prompt);  // This is where you call your model
       let processedOutput = await postProcess(response.data.choices[0].text);
-
-      console.log("processedOutput: ", processedOutput);
+      let cleanResponse = await avoidRepeatation(processedOutput);
+      console.log("cleanResponse: ", cleanResponse);
 
       // console.log("choices: ", response.data.choices);
       // console.log("choices 0: ", response.data.choices[0].text);
@@ -44,4 +45,20 @@ function postProcess(text) {
   return processedText;
 }
 
+function avoidRepeatation(fineTuneResponse) {
+  const sentences = fineTuneResponse.split(/[.?!]\s+/);
+
+  const uniqueSentences = new Set();
+  const result = [];
+
+  for (const sentence of sentences) {
+    if (!uniqueSentences.has(sentence)) {
+      uniqueSentences.add(sentence);
+      result.push(sentence);
+    }
+  }
+
+  const cleanedResponse = result.join(". "); // Join the unique sentences back into a string
+  return cleanedResponse;
+}
 // "ada:ft-strugbits-2023-05-29-15-10-48"  old model

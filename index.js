@@ -11,7 +11,7 @@ import { openai } from "./api.js";
 async function upload() {
   try {
     const response = await openai.createFile(
-      fs.createReadStream("./data/modelData.jsonl"),
+      fs.createReadStream("./data/improvedData.jsonl"),
       "fine-tune"
     );
     console.log("File ID: ", response.data.id);
