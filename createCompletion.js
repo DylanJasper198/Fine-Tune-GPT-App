@@ -3,11 +3,10 @@ import { openai } from "./api.js";
 async function createCompletion() {
   try {
     const response = await openai.createCompletion({
-      model: "ada:ft-strugbits-2023-06-19-11-41-44",
-      prompt:
-        "Once the refund is processed, can you please let me know how long the refund will take?",
-      max_tokens: 100,
-      temperature: 0.8, // Adjust this value between 0 and 1
+      model: "ada:ft-strugbits-2023-06-27-10-16-12",
+      prompt: "who are you ?",
+      // max_tokens: 100,
+      // temperature: 0.2, // Adjust this value between 0 and 1
     });
     if (response.data) {
       // let rawOutput = generateResponse(prompt);  // This is where you call your model
