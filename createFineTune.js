@@ -1,13 +1,13 @@
 import { openai } from "./api.js";
 // import { fileId } from "./fileId.js";
 
-const fileId = "file-MGaj3VuRSYyf4cM45AjJoZu4";
+const fileId = "file-N0H9MaE5kvZXDnaiqyQjpL71";
 
 async function createFineTune() {
   try {
     const response = await openai.createFineTune({
       training_file: fileId,
-      model: "ada",
+      model: "davinci",
     });
     console.log("response: ", response);
   } catch (err) {
