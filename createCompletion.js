@@ -4,7 +4,7 @@ async function createCompletion() {
   try {
     const response = await openai.createCompletion({
       model: "davinci:ft-strugbits-2023-07-04-16-01-25",
-      prompt: "What is your name?",
+      prompt: "Can I add on pro credit after the return is filed?",
       max_tokens: 50,
       temperature: 0.2, // Adjust this value between 0 and 1
     });
