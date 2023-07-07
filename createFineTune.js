@@ -1,7 +1,7 @@
-import { openai } from "./api.js";
+const { openai } = require("./api.js");
 // import { fileId } from "./fileId.js";
 
-const fileId = "file-rHUevXpUQe5uY7UiEgj1SWAk";
+const fileId = "file-BKlBAi16DWM7ZlCLIQ67rfF9";
 
 async function createFineTune() {
   try {

@@ -5,8 +5,12 @@
 // const openai = new OpenAIApi(configuration);
 // const fs = require("fs");
 
-import fs from "fs";
-import { openai } from "./api.js";
+// import fs from "fs";
+// import { openai } from "./api.js";
+const { openai } = require("./api.js");
+const fs = require("fs");
+// const { log } = require("console");
+// require("openai").config();
 
 async function upload() {
   try {
